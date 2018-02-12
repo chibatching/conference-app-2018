@@ -18,7 +18,7 @@ ext {
             archRoom        : "1.0.0",
             dagger          : "2.14.1",
             firebase        : "11.8.0", // Adjust version for emulator
-            kotpref         : "2.3.0",
+            kotpref         : "2.4.0",
             glide           : "4.5.0",
             groupie         : "2.0.3",
             stetho          : "1.5.0",
@@ -32,6 +32,7 @@ ext {
     depends = [
             kotlin                 : [
                     stdlib: "org.jetbrains.kotlin:kotlin-stdlib-jre7:$versions.kotlin",
+                    reflect: "org.jetbrains.kotlin:kotlin-reflect:$versions.kotlin"
             ],
 
             //==================== Support Library ====================

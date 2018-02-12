@@ -27,25 +27,15 @@ class MainViewModel @Inject constructor(context: Context) : ViewModel() {
 
     init {
         Prefs
-                .asFlowable(
-                        Prefs::enableHideBottomNavigationBar,
-                        R.string.pref_key_enable_hide_bottom_navigation
-                ).subscribeBy(
-                onNext = { mutableBottomNavigationBarConfig.value = it }
-        )
+                .asFlowable(Prefs::enableHideBottomNavigationBar)
+                .subscribeBy(onNext = { mutableBottomNavigationBarConfig.value = it })
                 .addTo(compositeDisposable)
         Prefs
-                .asFlowable(
-                        Prefs::enableLocalTime,
-                        R.string.pref_key_enable_local_time
-                ).subscribeBy(
-                onNext = { mutableLocalTimeConfig.value = it }
-        )
+                .asFlowable(Prefs::enableLocalTime)
+                .subscribeBy(onNext = { mutableLocalTimeConfig.value = it })
                 .addTo(compositeDisposable)
         RxBroadcast.fromBroadcast(context, IntentFilter(Intent.ACTION_TIMEZONE_CHANGED))
-                .subscribeBy(
-                        onNext = { mutableLastTimeZoneChangeIntent.value = it }
-                )
+                .subscribeBy(onNext = { mutableLastTimeZoneChangeIntent.value = it })
                 .addTo(compositeDisposable)
     }
 

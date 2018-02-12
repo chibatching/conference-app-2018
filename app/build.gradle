@@ -111,6 +111,7 @@ dependencies {
 
     // Kotlin
     implementation depends.kotlin.stdlib
+    implementation depends.kotlin.reflect
     implementation depends.ktx
 
     //==================== Support Library ====================
